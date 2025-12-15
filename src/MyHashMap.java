@@ -27,7 +27,6 @@ public class MyHashMap<K, V> {
     }
     
     public V put(K myKeyData, V myValueData) {
-
         if (myKeyData == null) {
             return putForNullKey(myValueData);
         }
@@ -47,7 +46,6 @@ public class MyHashMap<K, V> {
         bucketsArray[myIndex] = new Node<>(myKeyData, myValueData, bucketsArray[myIndex]);
         size++;
         
-
         if (size > threshold) {
             resize(bucketsArray.length * 2);
         }
@@ -78,7 +76,6 @@ public class MyHashMap<K, V> {
     }
     
     public V get(K myKeyData) {
-
         if (myKeyData == null) {
             return getForNullKey();
         }
@@ -108,7 +105,6 @@ public class MyHashMap<K, V> {
     }
     
     public V remove(K myKeyData) {
-
         if (myKeyData == null) {
             return removeForNullKey();
         }
@@ -163,7 +159,6 @@ public class MyHashMap<K, V> {
         bucketsArray = new Node[newCapacity];
         threshold = (int)(newCapacity * LOAD_FACTOR);
         
-
         for (Node<K, V> currentNode : oldBucketsArray) {
             while (currentNode != null) {
                 Node<K, V> nextNode = currentNode.nextNode;
